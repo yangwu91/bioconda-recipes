@@ -1,36 +1,36 @@
-{% set version = "0.1.5" %}
+{% set version = "0.1.9" %}
 
 package:
   name: trnanalysis
   version: {{ version }}
 
 source:
-  url: https://files.pythonhosted.org/packages/56/65/1f4de6e2c2bb23c572b79bcd566115653020c20422522399b9f4e5efa29f/tRNAnalysis-0.1.5.tar.gz
-  sha256: 27d1c8c821145e7f083e504125d2ff1a5587e25177e836deecb8ee3b18b999c9
+  url: https://files.pythonhosted.org/packages/4d/30/4f03863eb2163c1a59db5ac060eb00d87de9b7fc53b070f831fd594783dd/tRNAnalysis-0.1.9.tar.gz
+  sha256: 15d1f025bef910a603fce633a8c3607211bf96c22600577bad56eb98d32d845b
 
 build:
-  skip: True # [not py==36]
   number: 0
+  noarch: python
   entry_points:
     - trnanalysis = trnanalysis.entry:main
 
 requirements:
-  build:
-    - {{ compiler('c') }}
-    - {{ compiler('cxx') }}
   host:
-    - python
+    - python >=3
     - mysqlclient
     - cgat-apps
-    - numpy
+    - numpy >=1.16.4
     - pandas
     - pysam
     - ez_setup
     - setuptools
   run:
-    - python
+    - python >=3
     - mysqlclient
-    - cgat-apps ==0.5.3
+    - cgat-apps
+    - samtools
+    - bcftools
+    - trimmomatic
     - subread
     - sortedcontainers
     - seqtk
@@ -38,7 +38,7 @@ requirements:
     - configparser
     - cgatcore
     - ez_setup
-    - numpy
+    - numpy >=1.16.4
     - pandas
     - pysam
     - ruffus

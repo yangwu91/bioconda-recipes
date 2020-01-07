@@ -1,8 +1,8 @@
 {% set name = "kipoi" %}
-{% set version = "0.6.14" %}
+{% set version = "0.6.24" %}
 {% set file_ext = "tar.gz" %}
 {% set hash_type = "sha256" %}
-{% set hash_value = "3a811f75988196b0eba26c44d927bc0f1b90da161c1647ebe03d160db70c08a2" %}
+{% set hash_value = "8764c1df417407285dbb3e15ede6126e97ec669224e378f1214f58e4299bc588" %}
 
 package:
   name: '{{ name|lower }}'
@@ -13,7 +13,7 @@ source:
   '{{ hash_type }}': '{{ hash_value }}'
 
 build:
-  number: 0
+  number: 1
   noarch: python
   entry_points:
     - kipoi = kipoi.__main__:main
